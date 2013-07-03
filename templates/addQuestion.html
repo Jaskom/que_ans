@@ -1,0 +1,37 @@
+<html lang="en">
+	<head>
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container">
+	    <div class="row-fluid">
+		  <div class="span6 offset5">
+			{% if errors %}
+				<p style="color: red;">
+					Please correct the error{{form.errors|pluralize }} below.
+				</p>
+				<ul>
+					{% for error in errors %}
+					<li style="color: red;">{{ error }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+				<form action="/add/" method="post" style="padding: 25px 2px 29px;">
+					{% csrf_token %}
+					Publisher:<input type="text" name="owner"/>
+				 <br/><br/>
+					Question:<textarea rows="3" cols="20" name="des"></textarea><br/><br/>
+					 <input type = "submit" class="btn btn-primary" value = "Add Question" />
+				</form>
+			</div>
+         </div>
+		</div>
+	 </div>
+
+	 <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>

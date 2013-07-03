@@ -1,0 +1,51 @@
+{% include "header.html" %}
+<script src="/static/js/jquery-1.10.0.min.js">
+  function check_email(){
+     var email = $(#input01).text();
+      if(email==null){
+          $(#e1).attr().add('Waring');
+
+      }else if(){
+
+      }
+  }
+</script>
+<body>
+    <div class="container">
+        <div class="form-horizontal well">
+           <form action="/register/" class="">
+              <div class="control-group" id="e1">
+                <label for="input01"  class="control-label">Email</label>
+                    <div class="controls">
+                      <input type="text" id="input01" name="email" class="input-xlarge">
+                         <span class="help-inline" id="el"></span>
+                    </div>
+               </div>
+              <div class="control-group">
+                  <label for="input02" class="control-label">Password</label>
+                    <div class="controls">
+                      <input type="text" id="input02" name="password" class="input-xlarge">
+                    </div>
+              </div>
+               <div class="form-actions">
+                    <button class="btn btn-primary" type="submit">Register</button>
+                    <button class="btn" type="reset">Cancel</button>
+               </div>
+              <!-- <table>
+                   <tr>
+                       <td>
+                         Email: <input type="email">
+                      </td>
+                   </tr>
+                    <tr>
+                        <td>
+                          Password: <input type="password">
+                        </td>
+                    </tr>
+                    <tr><td></td></tr>
+               </table>-->
+           </form>
+        </div>
+    </div>
+</body>
+</html>

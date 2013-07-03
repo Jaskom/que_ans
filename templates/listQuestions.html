@@ -1,0 +1,50 @@
+<html lang="en">
+	<head>
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	 <div class="container">
+		{% block content%}
+			{% if questions %}
+				{% for question in questions%}
+				<ul>
+					<li>
+			   <div class="atl-item">		
+						<div class="atl-con-bd">
+							<p style=" background-color: #EEEEEE;font-size: 16px;line-height: 28px;padding: 10px 19px;text-align: justify;">	
+								<span style="text-decoration: none;"><a href="/query/?id={{question.id}}">{{ question.que_description}}<span>
+							</a>
+						</p>
+					  </div>
+					  </div>
+			</li>
+			<p style="color: #008000;display: block;height: 22px;line-height: 22px;text-align: center;">
+				author: <span style="color:#2965B1">{{ question.que_owner}}</span>&nbsp;&nbsp;  
+					publish time:<span style="color:#2965B1"> {{ question.que_publish_time|date:"l F jS"}}</span>
+				</p>
+		  </ul>
+			{% endfor%}
+		  {% endif%}
+		{% endblock%}
+		<div class="pagination">
+			<span class="step-links">
+				{% if questions.has_previous %}
+					<a href="?page={{ questions.previous_page_number }}">previous</a>
+				{% endif %}
+
+				<span class="current">
+					Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+				</span>
+
+				{% if questions.has_next %}
+					<a href="?page={{ questions.next_page_number }}">next</a>
+				{% endif %}
+			</span>
+		</div>
+		
+		<br/><br/>
+ <a href="/add-form/">contitnue add question>></a>
+ </div>
+ 	</body>
+</html>
